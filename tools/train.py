@@ -73,7 +73,7 @@ def main():
         cfg.work_dir = osp.join('./work_dirs', osp.splitext(osp.basename(args.config))[0])
 
     if not hasattr(cfg, 'dist_params'):
-        cfg.dist_params = dict(backend='nccl')
+        cfg.dist_params = dict(backend='gloo')
 
     init_dist(args.launcher, **cfg.dist_params)
     rank, world_size = get_dist_info()
