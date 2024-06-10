@@ -132,7 +132,7 @@ def main():
     cfg.data.test.test_mode = True
 
     if not hasattr(cfg, 'dist_params'):
-        cfg.dist_params = dict(backend='nccl')
+        cfg.dist_params = dict(backend='gloo')
 
     init_dist(args.launcher, **cfg.dist_params)
     rank, world_size = get_dist_info()

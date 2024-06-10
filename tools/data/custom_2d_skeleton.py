@@ -137,7 +137,7 @@ def main():
         my_part = annos
         os.makedirs(args.tmpdir, exist_ok=True)
     else:
-        init_dist('pytorch', backend='nccl')
+        init_dist('pytorch', backend='gloo')
         rank, world_size = get_dist_info()
         if rank == 0:
             os.makedirs(args.tmpdir, exist_ok=True)
